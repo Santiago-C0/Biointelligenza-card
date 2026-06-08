@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BioIntelligenza · Intelligent Biologic Solutions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Varela Round', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #0a2e1a 0%, #0d4028 50%, #0a2e1a 100%);
+    padding: 2rem 1rem;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 28px;
+    width: 100%;
+    max-width: 420px;
+    overflow: hidden;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.45);
+  }
+
+  .card-header {
+    background: linear-gradient(160deg, #0a2e1a 0%, #0f4a2c 55%, #1a7a45 100%);
+    padding: 2.3rem 1.2rem 2.8rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .card-header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 32px;
+    background: #fff;
+    border-radius: 50% 50% 0 0 / 32px 32px 0 0;
+  }
+
+  .tagline {
+    color: rgba(255,255,255,0.72);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+  }
+
+  .card-body {
+    padding: 2rem 1.75rem 1.75rem;
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 1rem 1.4rem;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Varela Round', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: transform 0.15s ease, filter 0.15s ease;
+    margin-bottom: 1rem;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+  }
+
+  .btn:active {
+    transform: translateY(0);
+  }
+
+  .btn-web {
+    background: linear-gradient(135deg, #3aab2e, #5fc93f);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(58,171,46,0.32);
+  }
+
+  .btn-ig {
+    background: linear-gradient(135deg, #0d9488, #14b8a6);
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(13,148,136,0.3);
+  }
+
+  .btn-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .btn-icon svg {
+    width: 22px;
+    height: 22px;
+    fill: #fff;
+  }
+
+  .btn-label {
+    flex: 1;
+    text-align: left;
+    line-height: 1.2;
+  }
+
+  .btn-label small {
+    display: block;
+    font-size: 0.68rem;
+    opacity: 0.75;
+    font-weight: 600;
+    margin-bottom: 1px;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1.5px solid #e2f0e8;
+    margin: 1.25rem 0;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #94a89e;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 0.8rem;
+    text-decoration: none;
+    color: #0f4a2c;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: color 0.15s;
+  }
+
+  .contact-item:hover {
+    color: #3aab2e;
+  }
+
+  .contact-icon {
+    width: 36px;
+    height: 36px;
+    background: linear-gradient(135deg, #e8f7e4, #d4f0cd);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .contact-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: #3aab2e;
+  }
+
+  .contact-text small {
+    display: block;
+    font-size: 0.65rem;
+    color: #94a89e;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1px;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+  <div class="card-header">
+
+    <svg xmlns="http://www.w3.org/2000/svg"
+         viewBox="0 0 380 110"
+         width="340"
+         style="display:inline-block; max-width:100%;">
+
+      <defs>
+
+        <radialGradient id="sphereOuter" cx="42%" cy="36%" r="58%">
+          <stop offset="0%" stop-color="#6ee06e"/>
+          <stop offset="45%" stop-color="#22a84a"/>
+          <stop offset="100%" stop-color="#0a4a1e"/>
+        </radialGradient>
+
+        <radialGradient id="sphereInner" cx="60%" cy="40%" r="55%">
+          <stop offset="0%" stop-color="#0d3d1a"/>
+          <stop offset="100%" stop-color="#051a0a"/>
+        </radialGradient>
+
+        <radialGradient id="sphereShine" cx="35%" cy="30%" r="50%">
+          <stop offset="0%" stop-color="rgba(255,255,255,0.55)"/>
+          <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+        </radialGradient>
+
+        <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#1ab86e"/>
+          <stop offset="100%" stop-color="#0d5c32"/>
+        </linearGradient>
+
+        <linearGradient id="underlineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#3aab2e"/>
+          <stop offset="100%" stop-color="#0d9488"/>
+        </linearGradient>
+
+      </defs>
+
+      <!-- ESFERA -->
+      <g transform="translate(258, 8)">
+
+        <ellipse
+          cx="30" cy="32" rx="36" ry="36"
+          fill="none"
+          stroke="url(#ringGrad)"
+          stroke-width="5"
+          opacity="0.85"
+          stroke-dasharray="170 56"
+          stroke-dashoffset="-10"
+          transform="rotate(-35 30 32)"
+        />
+
+        <ellipse
+          cx="30" cy="32" rx="26" ry="26"
+          fill="none"
+          stroke="#1ab86e"
+          stroke-width="3"
+          opacity="0.6"
+          stroke-dasharray="120 44"
+          stroke-dashoffset="-8"
+          transform="rotate(-35 30 32)"
+        />
+
+        <circle cx="30" cy="32" r="24" fill="url(#sphereOuter)"/>
+        <circle cx="36" cy="28" r="16" fill="url(#sphereInner)"/>
+        <circle cx="30" cy="32" r="24" fill="url(#sphereShine)"/>
+
+        <ellipse
+          cx="22" cy="22" rx="7" ry="5"
+          fill="rgba(255,255,255,0.3)"
+          transform="rotate(-20 22 22)"
+        />
+
+      </g>
+
+      <!-- TEXTO BIO -->
+      <text
+        x="6" y="84"
+        font-family="'Varela Round', Arial, sans-serif"
+        font-weight="700"
+        font-size="50"
+        fill="#7ac93a"
+        letter-spacing="-2">
+        Bio
+      </text>
+
+      <!-- TEXTO INTELLIGENZA -->
+      <text
+        x="92" y="84"
+        font-family="'Varela Round', Arial, sans-serif"
+        font-weight="700"
+        font-size="50"
+        fill="#08b7b0"
+        letter-spacing="-2.5">
+        Intelligenza
+      </text>
+
+      <!-- ® -->
+      <text
+        x="356" y="58"
+        font-family="Arial, sans-serif"
+        font-weight="400"
+        font-size="13"
+        fill="#0cb8a8"
+        opacity="0.9">
+        ®
+      </text>
+
+      <!-- LINEA -->
+      <path
+        d="M4 96 Q185 106 368 96"
+        stroke="url(#underlineGrad)"
+        stroke-width="3.5"
+        fill="none"
+        stroke-linecap="round"
+        opacity="0.8"
+      />
+
+    </svg>
+
+    <div class="tagline">
+      Intelligent Biologic Solutions
+    </div>
+
+  </div>
+
+  <div class="card-body">
+
+    <a href="https://www.biointelligenza.com/" class="btn btn-web" target="_blank">
+      <div class="btn-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+        </svg>
+      </div>
+      <div class="btn-label">
+        <small>Visitar</small>
+        Página Web
+      </div>
+    </a>
+
+    <a href="https://www.instagram.com/biointelligenza_es" class="btn btn-ig" target="_blank">
+      <div class="btn-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+        </svg>
+      </div>
+      <div class="btn-label">
+        <small>Seguir en</small>
+        Instagram
+      </div>
+    </a>
+
+    <hr class="divider">
+
+    <div class="section-label">
+      Contacto
+    </div>
+
+    <a href="tel:+14189981652" class="contact-item">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+        </svg>
+      </div>
+      <div class="contact-text">
+        <small>Teléfono</small>
+        +1 418 998 1652
+      </div>
+    </a>
+
+    <a href="mailto:adriana.perez@biointelligenza.com" class="contact-item">
+      <div class="contact-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+      </div>
+      <div class="contact-text">
+        <small>Email</small>
+        adriana.perez@biointelligenza.com
+      </div>
+    </a>
+
+  </div>
+
+</div>
+
+</body>
+</html>
